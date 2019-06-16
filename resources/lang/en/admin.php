@@ -29,5 +29,23 @@ return [
         ],
     ],
 
+    'employee' => [
+        'title' => 'Employees',
+
+        'actions' => [
+            'index' => 'Employees',
+            'create' => 'New Employee',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'name' => "Name",
+            'is_at_work' => "Is at work",
+            'last_seen_at' => "Last seen at",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

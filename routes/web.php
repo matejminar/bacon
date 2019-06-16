@@ -34,3 +34,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::get('/admin/password',                               'Admin\ProfileController@editPassword');
     Route::post('/admin/password',                              'Admin\ProfileController@updatePassword');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/employees',                              'Admin\EmployeesController@index');
+    Route::get('/admin/employees/create',                       'Admin\EmployeesController@create');
+    Route::post('/admin/employees',                             'Admin\EmployeesController@store');
+    Route::get('/admin/employees/{employee}/edit',              'Admin\EmployeesController@edit')->name('admin/employees/edit');
+    Route::post('/admin/employees/{employee}',                  'Admin\EmployeesController@update')->name('admin/employees/update');
+    Route::delete('/admin/employees/{employee}',                'Admin\EmployeesController@destroy')->name('admin/employees/destroy');
+});
