@@ -1,1 +1,10 @@
 // Write (or import) your styles here
+.boolean-icon {
+  font-size: 20px;
+  &.fa-times {
+    color: $danger
+  }
+  &.fa-check {
+    color: $success
+  }
+}

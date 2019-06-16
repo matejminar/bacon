@@ -55,7 +55,9 @@
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.name }}</td>
-                                    <td>@{{ item.is_at_work }}</td>
+                                    <td>
+                                        <i class="fa boolean-icon" :class="{'fa-times': !item.is_at_work, 'fa-check': item.is_at_work}"></i>
+                                    </td>
                                     <td>@{{ item.last_seen_at | datetime }}</td>
                                     
                                     <td>

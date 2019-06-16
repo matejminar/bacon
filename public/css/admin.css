@@ -23083,3 +23083,15 @@ div.trumbowyg-dropdown-table table td.active {
   }
 }
 
+.boolean-icon {
+  font-size: 20px;
+}
+
+.boolean-icon.fa-times {
+  color: #FE3F61;
+}
+
+.boolean-icon.fa-check {
+  color: #60CF7D;
+}
+
