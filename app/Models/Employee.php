@@ -1,9 +1,16 @@
 <?php namespace App\Models;
 
+use Brackets\Media\HasMedia\HasMediaCollections;
+use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
+use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\Media;
 
-class Employee extends Model
+class Employee extends Model implements HasMediaCollections, HasMediaConversions
 {
+    use HasMediaCollectionsTrait;
+    use HasMediaThumbsTrait;
     
     
     protected $fillable = [
@@ -32,6 +39,22 @@ class Employee extends Model
 
     public function getResourceUrlAttribute() {
         return url('/admin/employees/'.$this->getKey());
+    }
+
+    /* ************************ MEDIA ************************* */
+
+    public function registerMediaCollections() {
+      $this->addMediaCollection('avatar')
+        ->accepts('image/*');
+    }
+
+    public function registerMediaConversions(Media $media = null) {
+      $this->autoRegisterThumb200();
+
+      $this->addMediaConversion('thumbnail_hd')
+        ->width(600)
+        ->height(600)
+        ->performOnCollections('avatar');
     }
 
     

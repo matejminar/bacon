@@ -9,7 +9,8 @@ Vue.component('employee-form', {
                 is_at_work:  false ,
                 last_seen_at:  '' ,
                 
-            }
+            },
+            mediaCollections: ['avatar']
         }
     }
 

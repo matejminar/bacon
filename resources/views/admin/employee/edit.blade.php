@@ -23,6 +23,12 @@
 
                         @include('admin.employee.components.form-elements')
 
+                        @include('brackets/admin-ui::admin.includes.media-uploader', [
+                            'mediaCollection' => app(App\Models\Employee::class)->getMediaCollection('avatar'),
+                            'media' => $employee->getThumbs200ForCollection('avatar'),
+                            'label' => 'Avatar'
+                        ])
+
                     </div>
 
                     <div class="card-footer">

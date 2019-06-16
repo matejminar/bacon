@@ -23,6 +23,11 @@
 
                         @include('admin.employee.components.form-elements')
 
+                        @include('brackets/admin-ui::admin.includes.media-uploader', [
+                           'mediaCollection' => app(App\Models\Employee::class)->getMediaCollection('avatar'),
+                           'label' => 'Avatar'
+                       ])
+
                     </div>
 
                     <div class="card-footer">

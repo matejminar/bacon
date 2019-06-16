@@ -37,7 +37,14 @@ class EmployeesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.employee.index', ['data' => $data]);
+        // TODO: this could be more sophisticated
+        $avatars = [];
+        $data->getCollection()->each(function($item) use (&$avatars) {
+          $avatarThumbs = $item->getThumbs200ForCollection('avatar');
+          $avatars[$item->id] = $avatarThumbs->isEmpty() ? null : config('app.url') . $avatarThumbs->first()['thumb_url'];
+        });
+
+        return view('admin.employee.index', ['data' => $data, 'avatars' => $avatars]);
 
     }
 

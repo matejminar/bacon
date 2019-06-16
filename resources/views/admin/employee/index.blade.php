@@ -2,8 +2,15 @@
 
 @section('title', trans('admin.employee.actions.index'))
 
-@section('body')
+@section('styles')
+    {{--FIXME: hacky way to do this--}}
+    <script>
+        window.avatars = {!!json_encode($avatars) !!};
+        console.log(avatars);
+    </script>
+@endsection
 
+@section('body')
     <employee-listing
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/employees') }}'"
@@ -39,11 +46,12 @@
 
                             </div>
                         </form>
-
+@{{avatars}}
                         <table class="table table-hover table-listing">
                             <thead>
                                 <tr>
                                     <th is='sortable' :column="'id'">{{ trans('admin.employee.columns.id') }}</th>
+                                    <th>{{ trans('admin.employee.columns.avatar') }}</th>
                                     <th is='sortable' :column="'name'">{{ trans('admin.employee.columns.name') }}</th>
                                     <th is='sortable' :column="'is_at_work'">{{ trans('admin.employee.columns.is_at_work') }}</th>
                                     <th is='sortable' :column="'last_seen_at'">{{ trans('admin.employee.columns.last_seen_at') }}</th>
@@ -54,6 +62,10 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
+
+                                    <td>
+                                        <img v-if="window.avatars[item.id]" class="avatar-photo" :src="window.avatars[item.id]" :alt="item.name">
+                                    </td>
                                     <td>@{{ item.name }}</td>
                                     <td>
                                         <i class="fa boolean-icon" :class="{'fa-times': !item.is_at_work, 'fa-check': item.is_at_work}"></i>
