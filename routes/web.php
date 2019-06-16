@@ -44,3 +44,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/employees/{employee}',                  'Admin\EmployeesController@update')->name('admin/employees/update');
     Route::delete('/admin/employees/{employee}',                'Admin\EmployeesController@destroy')->name('admin/employees/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/devices',                                'Admin\DevicesController@index');
+    Route::get('/admin/devices/create',                         'Admin\DevicesController@create');
+    Route::post('/admin/devices',                               'Admin\DevicesController@store');
+    Route::get('/admin/devices/{device}/edit',                  'Admin\DevicesController@edit')->name('admin/devices/edit');
+    Route::post('/admin/devices/{device}',                      'Admin\DevicesController@update')->name('admin/devices/update');
+    Route::delete('/admin/devices/{device}',                    'Admin\DevicesController@destroy')->name('admin/devices/destroy');
+});

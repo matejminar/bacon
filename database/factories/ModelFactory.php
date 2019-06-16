@@ -29,3 +29,17 @@ $factory->define(App\Models\Employee::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Device::class, function (Faker\Generator $faker) {
+    return [
+        'ip' => $faker->sentence,
+        'mac' => $faker->sentence,
+        'hostname' => $faker->sentence,
+        'employee_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+

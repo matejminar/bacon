@@ -47,5 +47,24 @@ return [
         ],
     ],
 
+    'device' => [
+        'title' => 'Devices',
+
+        'actions' => [
+            'index' => 'Devices',
+            'create' => 'New Device',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'ip' => "Ip",
+            'mac' => "Mac",
+            'hostname' => "Hostname",
+            'employee_id' => "Employee",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
