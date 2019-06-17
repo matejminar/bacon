@@ -68,7 +68,7 @@
                                     <td>
                                         <i class="fa boolean-icon" :class="{'fa-times': !item.is_at_work, 'fa-check': item.is_at_work}"></i>
                                     </td>
-                                    <td>@{{ item.last_seen_at | datetime }}</td>
+                                    <td>@{{ item.last_seen_at | datetime('DD.MM.YYYY, HH:mm') }}</td>
                                     <td>
                                         <label class="switch switch-3d switch-success">
                                             <input type="checkbox" class="switch-input" v-model="collection[index].is_published" @change="toggleSwitch(item.resource_url, 'is_published', collection[index])">
