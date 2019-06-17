@@ -105406,6 +105406,12 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('device-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    employees: {
+      type: Array,
+      required: false
+    }
+  },
   data: function data() {
     return {
       form: {
@@ -105415,6 +105421,20 @@ Vue.component('device-form', {
         employee_id: ''
       }
     };
+  },
+  computed: {
+    employee: {
+      get: function get() {
+        var _this = this;
+
+        return this.employees.find(function (employee) {
+          return employee.id === _this.form.employee_id;
+        });
+      },
+      set: function set(v) {
+        this.form.employee_id = v.id;
+      }
+    }
   }
 });
 
@@ -105432,7 +105452,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('device-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  computed: {
+    window: function (_window) {
+      function window() {
+        return _window.apply(this, arguments);
+      }
+
+      window.toString = function () {
+        return _window.toString();
+      };
+
+      return window;
+    }(function () {
+      return window;
+    })
+  }
 });
 
 /***/ }),

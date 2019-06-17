@@ -2,6 +2,13 @@
 
 @section('title', trans('admin.device.actions.index'))
 
+@section('styles')
+    {{--FIXME: hacky way to do this--}}
+    <script>
+        window.avatars = {!!json_encode($avatars) !!};
+    </script>
+@endsection
+
 @section('body')
 
     <device-listing
@@ -58,7 +65,9 @@
                                     <td>@{{ item.ip }}</td>
                                     <td>@{{ item.mac }}</td>
                                     <td>@{{ item.hostname }}</td>
-                                    <td>@{{ item.employee_id }}</td>
+                                    <td>
+                                        <img v-if="window.avatars[item.employee_id]" class="avatar-photo" :src="window.avatars[item.employee_id]">
+                                    </td>
                                     
                                     <td>
                                         <div class="row no-gutters">

@@ -10,6 +10,7 @@
 
             <device-form
                 :action="'{{ $device->resource_url }}'"
+                :employees="{{ $employees->toJson() }}"
                 :data="{{ $device->toJson() }}"
                 inline-template>
             

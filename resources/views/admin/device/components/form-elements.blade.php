@@ -24,8 +24,8 @@
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('employee_id'), 'has-success': this.fields.employee_id && this.fields.employee_id.valid }">
     <label for="employee_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.device.columns.employee_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.employee_id" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('employee_id'), 'form-control-success': this.fields.employee_id && this.fields.employee_id.valid}" id="employee_id" name="employee_id" placeholder="{{ trans('admin.device.columns.employee_id') }}">
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <multiselect v-model="employee" placeholder="{{ trans('admin.device.columns.employee_id') }}" :options="employees" label="name" track-by="id" open-direction="bottom"></multiselect>
         <div v-if="errors.has('employee_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('employee_id') }}</div>
     </div>
 </div>

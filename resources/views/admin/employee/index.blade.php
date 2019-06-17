@@ -6,7 +6,6 @@
     {{--FIXME: hacky way to do this--}}
     <script>
         window.avatars = {!!json_encode($avatars) !!};
-        console.log(avatars);
     </script>
 @endsection
 

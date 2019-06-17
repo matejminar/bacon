@@ -18,7 +18,7 @@
 </div>
 
 <div class="form-check row" :class="{'has-danger': errors.has('is_at_work'), 'has-success': this.fields.is_at_work && this.fields.is_at_work.valid }">
-    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
+    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'" style="padding-left: 0;">
         <input class="form-check-input" id="is_at_work" type="checkbox" v-model="form.is_at_work" v-validate="''" data-vv-name="is_at_work"  name="is_at_work_fake_element">
         <label class="form-check-label" for="is_at_work">
             {{ trans('admin.employee.columns.is_at_work') }}

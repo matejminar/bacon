@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\Admin\Device\IndexDevice;
@@ -37,7 +38,14 @@ class DevicesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.device.index', ['data' => $data]);
+        // TODO: this could be more sophisticated
+        $avatars = [];
+        Employee::all()->each(function($item) use (&$avatars) {
+          $avatarThumbs = $item->getThumbs200ForCollection('avatar');
+          $avatars[$item->id] = $avatarThumbs->isEmpty() ? null : config('app.url') . $avatarThumbs->first()['thumb_url'];
+        });
+
+        return view('admin.device.index', ['data' => $data, 'avatars' => $avatars]);
 
     }
 
@@ -51,7 +59,15 @@ class DevicesController extends Controller
     {
         $this->authorize('admin.device.create');
 
-        return view('admin.device.create');
+        $employees = Employee::all()->map(function($employee) {
+          return [
+            'id'            => $employee->id,
+            'name' => $employee->name
+          ];
+        });;
+
+
+        return view('admin.device.create', ['employees' => $employees]);
     }
 
     /**
@@ -100,8 +116,16 @@ class DevicesController extends Controller
     {
         $this->authorize('admin.device.edit', $device);
 
+        $employees = Employee::all()->map(function($employee) {
+          return [
+            'id'            => $employee->id,
+            'name' => $employee->name
+          ];
+        });;
+
         return view('admin.device.edit', [
             'device' => $device,
+            'employees' => $employees
         ]);
     }
 
