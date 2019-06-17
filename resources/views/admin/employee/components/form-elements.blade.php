@@ -28,4 +28,15 @@
     </div>
 </div>
 
+<div class="form-check row" :class="{'has-danger': errors.has('is_published'), 'has-success': this.fields.is_published && this.fields.is_published.valid }">
+    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'" style="padding-left: 0;">
+        <input class="form-check-input" id="is_published" type="checkbox" v-model="form.is_published" v-validate="''" data-vv-name="is_published"  name="is_published_fake_element">
+        <label class="form-check-label" for="is_published">
+            {{ trans('admin.employee.columns.is_published') }}
+        </label>
+        <input type="hidden" name="is_published" :value="form.is_published">
+        <div v-if="errors.has('is_published')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('is_published') }}</div>
+    </div>
+</div>
+
 

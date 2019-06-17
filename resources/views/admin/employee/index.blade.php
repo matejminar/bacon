@@ -54,14 +54,13 @@
                                     <th is='sortable' :column="'name'">{{ trans('admin.employee.columns.name') }}</th>
                                     <th is='sortable' :column="'is_at_work'">{{ trans('admin.employee.columns.is_at_work') }}</th>
                                     <th is='sortable' :column="'last_seen_at'">{{ trans('admin.employee.columns.last_seen_at') }}</th>
-                                    
+                                    <th is='sortable' :column="'is_published'">{{ trans('admin.employee.columns.is_published') }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
-
                                     <td>
                                         <img v-if="window.avatars[item.id]" class="avatar-photo" :src="window.avatars[item.id]" :alt="item.name">
                                     </td>
@@ -70,7 +69,12 @@
                                         <i class="fa boolean-icon" :class="{'fa-times': !item.is_at_work, 'fa-check': item.is_at_work}"></i>
                                     </td>
                                     <td>@{{ item.last_seen_at | datetime }}</td>
-                                    
+                                    <td>
+                                        <label class="switch switch-3d switch-success">
+                                            <input type="checkbox" class="switch-input" v-model="collection[index].is_published" @change="toggleSwitch(item.resource_url, 'is_published', collection[index])">
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </td>
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto">

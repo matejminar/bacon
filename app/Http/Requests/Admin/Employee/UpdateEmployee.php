@@ -27,6 +27,7 @@ class UpdateEmployee extends FormRequest
             'name' => ['sometimes', 'string'],
             'is_at_work' => ['sometimes', 'boolean'],
             'last_seen_at' => ['nullable', 'date'],
+            'is_published' => ['boolean'],
             
         ];
     }

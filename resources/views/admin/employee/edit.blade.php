@@ -21,18 +21,26 @@
 
                     <div class="card-body">
 
-                        @include('admin.employee.components.form-elements')
-
-                        @include('brackets/admin-ui::admin.includes.media-uploader', [
-                            'mediaCollection' => app(App\Models\Employee::class)->getMediaCollection('avatar'),
-                            'media' => $employee->getThumbs200ForCollection('avatar'),
-                            'label' => 'Avatar'
-                        ])
+                        <div class="row">
+                            <div class="col-xl-9">
+                                <div class="card-header" style="border-bottom: none">
+                                    <i class="fa fa-user"></i> Employee info
+                                </div>
+                                @include('admin.employee.components.form-elements')
+                            </div>
+                            <div class="col-xl-3">
+                                @include('brackets/admin-ui::admin.includes.media-uploader', [
+                                    'mediaCollection' => app(App\Models\Employee::class)->getMediaCollection('avatar'),
+                                    'media' => $employee->getThumbs200ForCollection('avatar'),
+                                    'label' => 'Avatar'
+                                ])
+                            </div>
+                        </div>
 
                         <div class="card-header">
                             <i class="fa fa-mobile-phone"></i> Devices
                         </div>
-                        <table class="table table-listing">
+                        <table class="table table-hover table-listing">
                             <thead>
                                 <tr>
                                     <th>{{ trans('admin.device.columns.id') }}</th>

@@ -17,6 +17,7 @@ class Employee extends Model implements HasMediaCollections, HasMediaConversions
         "name",
         "is_at_work",
         "last_seen_at",
+        "is_published",
     
     ];
     

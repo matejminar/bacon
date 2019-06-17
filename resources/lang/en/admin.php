@@ -42,8 +42,9 @@ return [
             'id' => "ID",
             'avatar' => "Avatar",
             'name' => "Name",
-            'is_at_work' => "Is at work",
-            'last_seen_at' => "Last seen at",
+            'is_at_work' => "Working",
+            'last_seen_at' => "Last seen",
+            'is_published' => 'Published',
             
         ],
     ],

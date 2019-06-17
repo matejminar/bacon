@@ -27,7 +27,7 @@ class EmployeesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'is_at_work', 'last_seen_at'],
+            ['id', 'name', 'is_at_work', 'last_seen_at', 'is_published'],
 
             // set columns to searchIn
             ['id', 'name']

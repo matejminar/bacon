@@ -27,6 +27,7 @@ class StoreEmployee extends FormRequest
             'name' => ['required', 'string'],
             'is_at_work' => ['required', 'boolean'],
             'last_seen_at' => ['nullable', 'date'],
+            'is_published' => ['boolean'],
             
         ];
     }

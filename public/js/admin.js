@@ -105506,7 +105506,8 @@ Vue.component('employee-form', {
       form: {
         name: '',
         is_at_work: false,
-        last_seen_at: ''
+        last_seen_at: '',
+        is_published: false
       },
       mediaCollections: ['avatar']
     };
