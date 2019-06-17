@@ -34,5 +34,11 @@ class Device extends Model
         return url('/admin/devices/'.$this->getKey());
     }
 
+  /* ************************ RELATIONS ************************* */
+
+  public function employee() {
+    return $this->belongsTo('App\Models\Employee');
+  }
+
     
 }

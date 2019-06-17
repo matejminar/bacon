@@ -57,5 +57,9 @@ class Employee extends Model implements HasMediaCollections, HasMediaConversions
         ->performOnCollections('avatar');
     }
 
-    
+    /* ************************ RELATIONS ************************* */
+
+    public function devices() {
+      return $this->hasMany('App\Models\Device');
+    }
 }
