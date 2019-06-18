@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+  Route::get('/admin', function() {
+    return redirect('admin/employees');
+  });
+});
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
@@ -37,7 +42,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
-    Route::get('/admin/employees',                              'Admin\EmployeesController@index');
+    Route::get('/admin/employees',                              'Admin\EmployeesController@index')->name('admin/employees');;
     Route::get('/admin/employees/create',                       'Admin\EmployeesController@create');
     Route::post('/admin/employees',                             'Admin\EmployeesController@store');
     Route::get('/admin/employees/{employee}/edit',              'Admin\EmployeesController@edit')->name('admin/employees/edit');
