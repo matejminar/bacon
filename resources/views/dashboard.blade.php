@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="30" >
         <title>Bacon</title>
         <link rel="stylesheet" href="{{ mix('/css/main.css') }}">
     </head>
