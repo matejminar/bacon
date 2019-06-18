@@ -58,6 +58,13 @@ class Employee extends Model implements HasMediaCollections, HasMediaConversions
         ->performOnCollections('avatar');
     }
 
+    /* ************************ SCOPE ************************ */
+
+    public function scopePublished($query)
+    {
+      return $query->where('is_published', true);
+    }
+
     /* ************************ RELATIONS ************************* */
 
     public function devices() {
