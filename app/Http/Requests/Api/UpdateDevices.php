@@ -23,8 +23,7 @@ class UpdateDevices extends FormRequest
     {
         return [
             '*.ip' => ['required', 'ip'],
-            '*.mac' => ['required', 'string'],
-            '*.hostname' => ['nullable', 'string'],
+            '*.mac' => ['required', 'string']
         ];
     }
 }

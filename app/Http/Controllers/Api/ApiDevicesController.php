@@ -17,7 +17,7 @@ class ApiDevicesController extends Controller
     $devices->each(function($item) {
       Device::updateOrCreate(
         ['mac' => $item['mac']],
-        ['ip' => $item['ip'], 'hostname' => $item['hostname']]
+        ['ip' => $item['ip']]
       );
     });
 
