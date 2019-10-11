@@ -75,6 +75,7 @@ headers = {'Accept': 'application/json', 'Authorization': 'Bearer API_TOKEN from
 r = requests.post(url, data=payload, headers=headers)
 ```
 I am sure this could be done in much better way, but these were my first lines of Python ever - PRs are always welcome.
+Don't forget to add a cron job that runs this script every few minutes. (For example five: */5 * * * *)
 
 ## License
 
